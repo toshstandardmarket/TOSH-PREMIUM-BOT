@@ -60,7 +60,10 @@ onClick={()=>setShowRules(true)}
 
 
 
-<button className="login">
+<button
+className="login"
+onClick={loginWithDeriv}
+>
 Login
 </button>
 
