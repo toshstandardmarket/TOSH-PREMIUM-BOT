@@ -5,7 +5,7 @@ import Navigation from "./components/Navigation";
 import BotGrid from "./components/BotGrid";
 import Loader from "./components/Loader";
 import ChartView from "./components/ChartView";
-
+import AnalysisView from "./components/AnalysisView";
 
 function App(){
 
@@ -73,6 +73,12 @@ DASHBOARD
 
 <ChartView />
 
+  {page==="📊 Analysis" && (
+
+<AnalysisView />
+
+)}
+  
 )}
 
 
