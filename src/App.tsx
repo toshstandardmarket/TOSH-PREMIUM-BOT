@@ -9,15 +9,13 @@ import AnalysisView from "./components/AnalysisView";
 import FreeBots from "./components/FreeBots";
 import Footer from "./components/Footer";
 
+
 function App(){
 
 
-const [loading,setLoading] =
-useState(true);
+const [loading,setLoading] = useState(true);
 
-
-const [page,setPage] =
-useState("📊 Dashboard");
+const [page,setPage] = useState("📊 Dashboard");
 
 
 
@@ -35,7 +33,6 @@ done={()=>setLoading(false)}
 
 
 
-
 return (
 
 <div className="app">
@@ -50,6 +47,7 @@ setPage={setPage}
 />
 
 
+
 <main className="dashboard">
 
 
@@ -62,7 +60,6 @@ setPage={setPage}
 DASHBOARD
 </h1>
 
-
 <BotGrid />
 
 </>
@@ -71,34 +68,45 @@ DASHBOARD
 
 
 
+
 {page==="📈 Chart" && (
 
 <ChartView />
 
-  {page==="📊 Analysis" && (
+)}
+
+
+
+
+
+{page==="📊 Analysis" && (
 
 <AnalysisView />
 
-  {page==="⚡ Free Bot" && (
+)}
+
+
+
+
+
+{page==="⚡ Free Bot" && (
 
 <FreeBots />
 
-)}
-  
-)}
-  
 )}
 
 
 
 </main>
 
+
+
 <Footer />
+
 
 </div>
 
 );
-
 
 }
 
