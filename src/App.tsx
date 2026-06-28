@@ -42,7 +42,10 @@ return (
 <Header />
 
 
-<Navigation />
+<Navigation
+page={page}
+setPage={setPage}
+/>
 
 
 <main className="dashboard">
