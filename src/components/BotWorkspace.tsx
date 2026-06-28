@@ -3,7 +3,39 @@ import { useState } from "react";
 
 function BotWorkspace() {
 
+
 const [running,setRunning] = useState(false);
+
+const [profit,setProfit] = useState(0);
+
+const [trades,setTrades] = useState(0);
+
+const [won,setWon] = useState(0);
+
+const [lost,setLost] = useState(0);
+
+
+
+function startBot(){
+
+setRunning(true);
+
+setTrades(old=>old+1);
+
+setProfit(old=>old+5);
+
+setWon(old=>old+1);
+
+}
+
+
+
+function stopBot(){
+
+setRunning(false);
+
+}
+
 
 
 return (
@@ -12,26 +44,19 @@ return (
 
 
 <h2>
-Bot Trading Workspace
+TOSH BOT WORKSPACE
 </h2>
+
 
 
 <div className="config">
 
 
-<input
-placeholder="Stake Amount"
-/>
+<input placeholder="Stake Amount ($)" />
 
+<input placeholder="Target Profit ($)" />
 
-<input
-placeholder="Target Profit"
-/>
-
-
-<input
-placeholder="Stop Loss"
-/>
+<input placeholder="Stop Loss ($)" />
 
 
 </div>
@@ -43,7 +68,7 @@ placeholder="Stop Loss"
 
 <button
 className="run"
-onClick={()=>setRunning(true)}
+onClick={startBot}
 >
 
 {running ? "BOT RUNNING" : "RUN BOT"}
@@ -54,7 +79,7 @@ onClick={()=>setRunning(true)}
 
 <button
 className="stop"
-onClick={()=>setRunning(false)}
+onClick={stopBot}
 >
 
 STOP
@@ -62,7 +87,9 @@ STOP
 </button>
 
 
+
 </div>
+
 
 
 
@@ -72,32 +99,41 @@ STOP
 <div>
 Total Trades
 <br/>
-0
+{trades}
 </div>
+
 
 
 <div>
 Won
 <br/>
-0
+{won}
 </div>
+
 
 
 <div>
 Lost
 <br/>
-0
+{lost}
 </div>
+
 
 
 <div>
 Profit
 <br/>
-$0.00
+
+<span className="profit">
+${profit}
+</span>
+
 </div>
 
 
+
 </div>
+
 
 
 </div>
