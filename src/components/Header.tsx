@@ -173,15 +173,12 @@ Login
 
 
 <a
-
 className="signup"
-
 href="https://partner-tracking.deriv.com/click?a=31609&o=1&c=3&link_id=1"
-
+target="_blank"
+rel="noopener noreferrer"
 >
-
 Sign Up
-
 </a>
 
 
