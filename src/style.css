@@ -2,48 +2,267 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
+
 body {
-  background: #090909;
-  color: #f4d06f;
+  background: #050505;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
 
 .app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background:
-    radial-gradient(circle at top, rgba(212,175,55,0.15), transparent 60%),
-    #090909;
-  text-align: center;
+  radial-gradient(circle at top, #3b2a00, #050505 45%);
   padding: 20px;
 }
 
-.logo {
-  width: 90px;
-  height: 90px;
-  border: 3px solid #d4af37;
-  border-radius: 50%;
+
+/* HEADER */
+
+.header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-size: 42px;
-  color: #d4af37;
-  box-shadow: 0 0 25px rgba(212,175,55,0.45);
-  margin-bottom: 20px;
+  padding: 18px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid #b8860b;
 }
 
-h1 {
-  font-size: 2rem;
-  color: #d4af37;
-  margin-bottom: 10px;
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-p {
-  color: #cccccc;
-  font-size: 1rem;
+
+.brand-logo {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#ffd700;
+  border:2px solid #ffd700;
+}
+
+
+.brand h2 {
+  color:#ffd700;
+}
+
+
+.header-actions {
+  display:flex;
+  gap:10px;
+}
+
+
+button,
+.signup {
+  border:none;
+  padding:10px 18px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+
+.login {
+  background:#ffd700;
+}
+
+
+.signup {
+  background:#8b6508;
+  color:white;
+  text-decoration:none;
+}
+
+
+.shield {
+  background:transparent;
+  color:#ffd700;
+}
+
+
+
+/* NAV */
+
+.navigation {
+
+margin:25px 0;
+
+display:flex;
+gap:10px;
+overflow:auto;
+
+padding:12px;
+
+background:rgba(255,255,255,.04);
+
+border-radius:30px;
+
+}
+
+
+.navigation button {
+
+background:transparent;
+color:white;
+
+}
+
+
+.navigation .active {
+
+color:#ffd700;
+
+border-bottom:2px solid #ffd700;
+
+}
+
+
+
+/* DASHBOARD */
+
+
+.dashboard {
+
+text-align:center;
+
+}
+
+
+.dashboard h1 {
+
+color:#ffd700;
+
+margin:20px;
+
+}
+
+
+
+/* BOT GRID */
+
+
+.bot-grid {
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:20px;
+
+margin-top:30px;
+
+}
+
+
+
+/* BOT CARD */
+
+
+.bot-card {
+
+background:
+linear-gradient(
+145deg,
+#111,
+#050505
+);
+
+border:1px solid #8b6508;
+
+border-radius:25px;
+
+padding:25px;
+
+box-shadow:
+0 0 25px rgba(255,215,0,.15);
+
+transition:.3s;
+
+}
+
+
+.bot-card:hover {
+
+transform:translateY(-5px);
+
+box-shadow:
+0 0 35px rgba(255,215,0,.35);
+
+}
+
+
+
+.bot-icon {
+
+font-size:40px;
+
+color:#ffd700;
+
+margin-bottom:15px;
+
+}
+
+
+.bot-card h3 {
+
+color:#ffd700;
+
+}
+
+
+
+.market {
+
+margin:20px 0;
+
+}
+
+
+.bar {
+
+height:10px;
+
+background:#222;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+
+.fill {
+
+width:80%;
+
+height:100%;
+
+background:#00ff88;
+
+}
+
+
+
+.bot-card button {
+
+width:100%;
+
+background:#ffd700;
+
+color:black;
+
+font-weight:bold;
+
 }
