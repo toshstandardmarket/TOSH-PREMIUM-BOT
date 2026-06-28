@@ -1,5 +1,5 @@
 const DERIV_WS =
-"wss://ws.derivws.com/websockets/v3?app_id=1089";
+"wss://ws.derivws.com/websockets/v3?app_id=33FyAVfAb5UdDeFEejgPD";
 
 
 let socket: WebSocket | null = null;
