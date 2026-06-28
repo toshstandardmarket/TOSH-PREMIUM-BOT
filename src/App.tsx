@@ -6,6 +6,7 @@ import BotGrid from "./components/BotGrid";
 import Loader from "./components/Loader";
 import ChartView from "./components/ChartView";
 import AnalysisView from "./components/AnalysisView";
+import FreeBots from "./components/FreeBots";
 
 function App(){
 
@@ -77,6 +78,12 @@ DASHBOARD
 
 <AnalysisView />
 
+  {page==="⚡ Free Bot" && (
+
+<FreeBots />
+
+)}
+  
 )}
   
 )}
