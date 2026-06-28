@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
 import DisciplineModal from "./DisciplineModal";
 import { loginWithDeriv, checkLogin } from "../deriv/auth";
+import { authorize } from "../deriv/connection";
 
 
 function Header(){
@@ -12,7 +13,8 @@ const [showRules,setShowRules] = useState(false);
 const [logged,setLogged] = useState(false);
 
 const [account,setAccount] = useState("");
-
+  
+const [balance,setBalance] = useState("0.00");
 
 
 useEffect(()=>{
@@ -34,7 +36,31 @@ if(status || token){
 setLogged(true);
 
 setAccount(acc || "Demo");
+  
+if(token){
 
+const ws = authorize(token);
+
+
+ws.onmessage = (msg)=>{
+
+const data = JSON.parse(
+msg.data
+);
+
+
+if(data.balance){
+
+setBalance(
+data.balance.balance
+);
+
+}
+
+};
+
+
+  }
 }
 
 
@@ -117,6 +143,10 @@ onClick={()=>setShowRules(true)}
 <br/>
 
 Account: {account}
+
+<br/>
+
+Balance: ${balance}
 
 </div>
 
