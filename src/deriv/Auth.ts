@@ -1,4 +1,4 @@
-const APP_ID = "1089";
+const APP_ID = "33FyAVfAb5UdDeFEejgPD";
 
 
 export function loginWithDeriv(){
