@@ -3,83 +3,103 @@ import BotCard from "./BotCard";
 
 function BotGrid() {
 
-  const bots = [
 
-    {
-      name: "TOSH Alpha Bot",
-      strategy: "EMA crossover + Momentum",
-      payout: "⚡ High Payout",
-      icon: "⚡"
-    },
+const bots = [
 
-    {
-      name: "TOSH Quantum Bot",
-      strategy: "Bollinger + ATR volatility",
-      payout: "⚡ High Payout",
-      icon: "◉"
-    },
-
-    {
-      name: "TOSH Velocity Bot",
-      strategy: "Tick speed momentum",
-      payout: "Risk Managed",
-      icon: "➤"
-    },
-
-    {
-      name: "TOSH Phantom Bot",
-      strategy: "Pattern reversal engine",
-      payout: "Risk Managed",
-      icon: "👁"
-    },
-
-    {
-      name: "TOSH Nova Bot",
-      strategy: "Support resistance breakout",
-      payout: "Risk Managed",
-      icon: "◆"
-    },
-
-    {
-      name: "TOSH Titan Bot",
-      strategy: "50 tick trend filter",
-      payout: "Risk Managed",
-      icon: "♜"
-    },
-
-    {
-      name: "TOSH Matrix Bot",
-      strategy: "EMA + ATR + Momentum",
-      payout: "⚡ High Payout",
-      icon: "▦"
-    },
-
-    {
-      name: "TOSH Elite Bot",
-      strategy: "Multi-layer adaptive strategy",
-      payout: "⚡ High Payout",
-      icon: "♛"
-    }
-
-  ];
+{
+name:"TOSH Alpha Bot",
+strategy:"EMA crossover + Momentum",
+payout:"High Payout Strategy",
+icon:"⚡",
+strength:82
+},
 
 
-  return (
+{
+name:"TOSH Quantum Bot",
+strategy:"Bollinger + ATR volatility",
+payout:"High Payout Strategy",
+icon:"◉",
+strength:88
+},
 
-    <div className="bot-grid">
 
-      {bots.map((bot, index)=>(
+{
+name:"TOSH Velocity Bot",
+strategy:"Tick speed momentum",
+payout:"Risk Management",
+icon:"➤",
+strength:71
+},
 
-        <BotCard
-          key={index}
-          {...bot}
-        />
 
-      ))}
+{
+name:"TOSH Phantom Bot",
+strategy:"Pattern reversal engine",
+payout:"Risk Management",
+icon:"👁",
+strength:68
+},
 
-    </div>
 
-  );
+{
+name:"TOSH Nova Bot",
+strategy:"Support resistance breakout",
+payout:"Risk Management",
+icon:"◆",
+strength:76
+},
+
+
+{
+name:"TOSH Titan Bot",
+strategy:"50 tick trend filter",
+payout:"Risk Management",
+icon:"♜",
+strength:79
+},
+
+
+{
+name:"TOSH Matrix Bot",
+strategy:"EMA + ATR + Momentum",
+payout:"High Payout Strategy",
+icon:"▦",
+strength:91
+},
+
+
+{
+name:"TOSH Elite Bot",
+strategy:"Adaptive multi-layer strategy",
+payout:"High Payout Strategy",
+icon:"♛",
+strength:85
+}
+
+
+];
+
+
+
+return (
+
+<div className="bot-grid">
+
+{bots.map((bot,index)=>(
+
+<BotCard
+key={index}
+{...bot}
+/>
+
+))}
+
+
+</div>
+
+);
+
 
 }
 
