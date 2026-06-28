@@ -1,25 +1,63 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
 import DisciplineModal from "./DisciplineModal";
-import { loginWithDeriv } from "../deriv/auth";
+import { loginWithDeriv, checkLogin } from "../deriv/auth";
 
-function Header() {
+
+function Header(){
 
 const [showRules,setShowRules] = useState(false);
+
+const [logged,setLogged] = useState(false);
+
+const [account,setAccount] = useState("");
+
+
+
+useEffect(()=>{
+
+
+const status = checkLogin();
+
+
+const token =
+localStorage.getItem("deriv_token");
+
+
+const acc =
+localStorage.getItem("deriv_account");
+
+
+if(status || token){
+
+setLogged(true);
+
+setAccount(acc || "Demo");
+
+}
+
+
+},[]);
+
+
 
 
 return (
 
 <>
 
+
 <header className="header">
 
 
 <div className="brand">
 
+
 <motion.div
+
 className="brand-logo"
+
 animate={{
 boxShadow:[
 "0 0 10px #d4af37",
@@ -27,13 +65,18 @@ boxShadow:[
 "0 0 10px #d4af37"
 ]
 }}
+
 transition={{
 duration:2,
 repeat:Infinity
 }}
+
 >
+
 ◈
+
 </motion.div>
+
 
 
 <h2>
@@ -50,8 +93,11 @@ TOSH PREMIUM BOT
 
 
 <button
+
 className="shield"
+
 onClick={()=>setShowRules(true)}
+
 >
 
 <Shield size={22}/>
@@ -60,23 +106,59 @@ onClick={()=>setShowRules(true)}
 
 
 
+
+{logged ? (
+
+
+<div className="account">
+
+🟢 Live Sync
+
+<br/>
+
+Account: {account}
+
+</div>
+
+
+
+) : (
+
+
+<>
+
+
 <button
+
 className="login"
+
 onClick={loginWithDeriv}
+
 >
+
 Login
+
 </button>
 
 
 
 <a
+
 className="signup"
+
 href="https://partner-tracking.deriv.com/click?a=31609&o=1&c=3&link_id=1"
+
 >
 
 Sign Up
 
 </a>
+
+
+</>
+
+
+)}
 
 
 
@@ -87,19 +169,22 @@ Sign Up
 </header>
 
 
-{showRules && (
+
+{showRules &&
 
 <DisciplineModal
+
 close={()=>setShowRules(false)}
+
 />
 
-)}
-
+}
 
 
 </>
 
 );
+
 
 }
 
