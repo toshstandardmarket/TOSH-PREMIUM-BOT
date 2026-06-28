@@ -1,22 +1,20 @@
-import { motion } from "framer-motion";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="app">
 
-      <motion.div
-        className="logo"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-      >
-        ◈
-      </motion.div>
+      <Header />
 
-      <h1>TOSH PREMIUM BOT</h1>
+      <main className="dashboard">
 
-      <p>
-        Real Deriv Automated Trading Terminal
-      </p>
+        <h1>DASHBOARD</h1>
+
+        <p>
+          Automated Deriv Trading Terminal
+        </p>
+
+      </main>
 
     </div>
   );
