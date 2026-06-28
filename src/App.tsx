@@ -7,6 +7,7 @@ import Loader from "./components/Loader";
 import ChartView from "./components/ChartView";
 import AnalysisView from "./components/AnalysisView";
 import FreeBots from "./components/FreeBots";
+import Footer from "./components/Footer";
 
 function App(){
 
@@ -92,6 +93,7 @@ DASHBOARD
 
 </main>
 
+<Footer />
 
 </div>
 
