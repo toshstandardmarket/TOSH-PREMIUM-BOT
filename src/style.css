@@ -432,3 +432,133 @@ color:#000;
 font-weight:bold;
 
   }
+
+/* WORKSPACE */
+
+.workspace {
+
+margin-top:30px;
+
+background:
+linear-gradient(145deg,#111,#050505);
+
+border:1px solid #ffd700;
+
+border-radius:25px;
+
+padding:25px;
+
+box-shadow:
+0 0 30px rgba(255,215,0,.2);
+
+}
+
+
+.workspace h2 {
+
+color:#ffd700;
+
+margin-bottom:20px;
+
+}
+
+
+
+.config {
+
+display:grid;
+
+gap:15px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.config input {
+
+background:#111;
+
+border:1px solid #8b6508;
+
+color:white;
+
+padding:14px;
+
+border-radius:15px;
+
+}
+
+
+
+.controls {
+
+display:flex;
+
+gap:15px;
+
+}
+
+
+
+.run {
+
+background:#00ff88;
+
+color:#000;
+
+font-weight:bold;
+
+}
+
+
+
+.stop {
+
+background:#ff3344;
+
+color:white;
+
+font-weight:bold;
+
+}
+
+
+
+.stats {
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:15px;
+
+margin-top:25px;
+
+}
+
+
+
+.stats div {
+
+background:#111;
+
+border-radius:15px;
+
+padding:15px;
+
+border:1px solid #333;
+
+}
+
+
+
+.profit {
+
+color:#00ff88;
+
+font-size:22px;
+
+}
