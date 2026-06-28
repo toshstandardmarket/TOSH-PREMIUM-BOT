@@ -1,5 +1,5 @@
 import BotWorkspace from "./BotWorkspace";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 type BotProps = {
@@ -7,6 +7,7 @@ type BotProps = {
   strategy:string;
   payout:string;
   icon:string;
+  strength:number;
 };
 
 
@@ -14,21 +15,48 @@ function BotCard({
  name,
  strategy,
  payout,
- icon
+ icon,
+ strength
 }:BotProps){
 
 
 const [open,setOpen] = useState(false);
 
+const [market,setMarket] = useState(strength);
+
+
+
+useEffect(()=>{
+
+const timer = setInterval(()=>{
+
+setMarket(old=>{
+
+let change = Math.floor(Math.random()*5)-2;
+
+let next = old + change;
+
+if(next < 20) next = 20;
+if(next > 95) next = 95;
+
+return next;
+
+});
+
+
+},2500);
+
+
+return ()=>clearInterval(timer);
+
+
+},[]);
+
 
 
 if(open){
 
-return (
-
-<BotWorkspace />
-
-);
+return <BotWorkspace />;
 
 }
 
@@ -40,9 +68,7 @@ return (
 
 
 <div className="bot-icon">
-
 {icon}
-
 </div>
 
 
@@ -61,17 +87,28 @@ return (
 
 
 <span>
-Market Condition
+Market Condition {market}%
 </span>
 
 
 <div className="bar">
 
-<div className="fill">
+<div
+className="fill"
+style={{
+width:`${market}%`,
+background:
+market >= 75
+? "#00ff88"
+: "#ff3344"
+}}
+>
 
 </div>
 
+
 </div>
+
 
 
 <small>
@@ -83,12 +120,8 @@ Market Condition
 
 
 
-<button
-onClick={()=>setOpen(true)}
->
-
+<button onClick={()=>setOpen(true)}>
 LOAD BOT
-
 </button>
 
 
