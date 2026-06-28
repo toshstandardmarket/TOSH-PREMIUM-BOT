@@ -1,29 +1,62 @@
+import { useState } from "react";
+
+
 function Navigation() {
-  return (
-    <nav className="navigation">
 
-      <button className="active">
-        📊 Dashboard
-      </button>
 
-      <button>
-        🤖 Bot Builder
-      </button>
+const [active,setActive] =
+useState("Dashboard");
 
-      <button>
-        📈 Chart
-      </button>
 
-      <button>
-        📊 Analysis
-      </button>
 
-      <button>
-        ⚡ Free Bot
-      </button>
+const tabs = [
 
-    </nav>
-  );
+"📊 Dashboard",
+"🤖 Bot Builder",
+"📈 Chart",
+"📊 Analysis",
+"⚡ Free Bot"
+
+];
+
+
+
+return (
+
+<nav className="navigation">
+
+
+{tabs.map(tab=>(
+
+
+<button
+
+key={tab}
+
+className={
+active===tab ? "active" : ""
 }
+
+
+onClick={()=>setActive(tab)}
+
+>
+
+{tab}
+
+</button>
+
+
+
+))}
+
+
+</nav>
+
+);
+
+
+}
+
 
 export default Navigation;
