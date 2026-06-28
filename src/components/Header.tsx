@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
 import DisciplineModal from "./DisciplineModal";
-
+import { loginWithDeriv } from "../deriv/auth";
 
 function Header() {
 
