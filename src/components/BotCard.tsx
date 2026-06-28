@@ -1,61 +1,102 @@
+import BotWorkspace from "./BotWorkspace";
+import { useState } from "react";
+
+
 type BotProps = {
-  name: string;
-  strategy: string;
-  payout: string;
-  icon: string;
+  name:string;
+  strategy:string;
+  payout:string;
+  icon:string;
 };
 
 
 function BotCard({
-  name,
-  strategy,
-  payout,
-  icon
-}: BotProps) {
-
-  return (
-    <div className="bot-card">
-
-      <div className="bot-icon">
-        {icon}
-      </div>
-
-      <h3>
-        {name}
-      </h3>
-
-      <p>
-        {strategy}
-      </p>
+ name,
+ strategy,
+ payout,
+ icon
+}:BotProps){
 
 
-      <div className="market">
-
-        <span>
-          Market Strength
-        </span>
-
-        <div className="bar">
-
-          <div className="fill">
-          </div>
-
-        </div>
-
-        <small>
-          {payout}
-        </small>
-
-      </div>
+const [open,setOpen] = useState(false);
 
 
-      <button>
-        LOAD BOT
-      </button>
+
+if(open){
+
+return (
+
+<BotWorkspace />
+
+);
+
+}
 
 
-    </div>
-  );
+
+return (
+
+<div className="bot-card">
+
+
+<div className="bot-icon">
+
+{icon}
+
+</div>
+
+
+<h3>
+{name}
+</h3>
+
+
+<p>
+{strategy}
+</p>
+
+
+
+<div className="market">
+
+
+<span>
+Market Condition
+</span>
+
+
+<div className="bar">
+
+<div className="fill">
+
+</div>
+
+</div>
+
+
+<small>
+{payout}
+</small>
+
+
+</div>
+
+
+
+<button
+onClick={()=>setOpen(true)}
+>
+
+LOAD BOT
+
+</button>
+
+
+
+</div>
+
+);
+
 }
 
 
