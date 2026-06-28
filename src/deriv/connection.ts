@@ -5,45 +5,11 @@ const DERIV_WS =
 let socket: WebSocket | null = null;
 
 
+
 export function connectDeriv(){
 
-if(socket) return socket;
 
-
-socket = new WebSocket(DERIV_WS);
-
-
-socket.onopen = () => {
-
-console.log(
-"Deriv WebSocket Connected"
-);
-
-};
-
-
-socket.onclose = () => {
-
-console.log(
-"Deriv WebSocket Closed"
-);
-
-socket = null;
-
-};
-
-
-
-socket.onerror = (error)=>{
-
-console.log(
-"Deriv Connection Error",
-error
-);
-
-};
-
-
+if(socket){
 
 return socket;
 
@@ -51,8 +17,80 @@ return socket;
 
 
 
-export function getDerivSocket(){
+socket = new WebSocket(
+DERIV_WS
+);
+
+
+
+socket.onopen = ()=>{
+
+console.log(
+"Deriv Connected"
+);
+
+
+};
+
+
 
 return socket;
+
+
+}
+
+
+
+
+
+export function authorize(token:string){
+
+
+const ws =
+connectDeriv();
+
+
+
+ws.onopen = ()=>{
+
+
+ws.send(
+JSON.stringify({
+
+authorize:token
+
+})
+);
+
+
+
+};
+
+
+
+return ws;
+
+
+}
+
+
+
+
+export function requestBalance(){
+
+
+if(!socket) return;
+
+
+socket.send(
+
+JSON.stringify({
+
+balance:1
+
+})
+
+);
+
 
 }
