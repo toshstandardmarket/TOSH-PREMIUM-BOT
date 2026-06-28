@@ -1,12 +1,13 @@
-import { useState } from "react";
+type Props = {
+  page:string;
+  setPage:(page:string)=>void;
+};
 
 
-function Navigation() {
-
-
-const [active,setActive] =
-useState("Dashboard");
-
+function Navigation({
+  page,
+  setPage
+}:Props){
 
 
 const tabs = [
@@ -18,7 +19,6 @@ const tabs = [
 "⚡ Free Bot"
 
 ];
-
 
 
 return (
@@ -34,18 +34,17 @@ return (
 key={tab}
 
 className={
-active===tab ? "active" : ""
+page===tab ? "active" : ""
 }
 
 
-onClick={()=>setActive(tab)}
+onClick={()=>setPage(tab)}
 
 >
 
 {tab}
 
 </button>
-
 
 
 ))}
