@@ -4,11 +4,11 @@ const APP_ID = "33FyAVfAb5UdDeFEejgPD";
 export function loginWithDeriv(){
 
 const redirect =
-window.location.origin;
+encodeURIComponent(window.location.origin);
 
 
 const url =
-`https://oauth.deriv.com/oauth2/authorize?app_id=${APP_ID}&l=en&redirect_uri=${redirect}`;
+`https://oauth.deriv.com/oauth2/authorize?app_id=${APP_ID}&redirect_uri=${redirect}&response_type=token`;
 
 
 window.location.href = url;
@@ -21,7 +21,7 @@ export function checkLogin(){
 
 const params =
 new URLSearchParams(
-window.location.search
+window.location.hash.substring(1)
 );
 
 
@@ -46,7 +46,6 @@ localStorage.setItem(
 "deriv_account",
 account
 );
-
 
 
 window.history.replaceState(
