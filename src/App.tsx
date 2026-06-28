@@ -4,55 +4,83 @@ import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import BotGrid from "./components/BotGrid";
 import Loader from "./components/Loader";
+import ChartView from "./components/ChartView";
 
 
-function App() {
-
-  const [loading, setLoading] = useState(true);
+function App(){
 
 
-  if (loading) {
-
-    return (
-      <Loader
-        done={() => setLoading(false)}
-      />
-    );
-
-  }
+const [loading,setLoading] =
+useState(true);
 
 
-  return (
-
-    <div className="app">
-
-      <Header />
-
-      <Navigation />
+const [page,setPage] =
+useState("📊 Dashboard");
 
 
-      <main className="dashboard">
+
+if(loading){
+
+return (
+
+<Loader
+done={()=>setLoading(false)}
+/>
+
+);
+
+}
 
 
-        <h1>
-          DASHBOARD
-        </h1>
 
 
-        <p>
-          Select your automated trading bot
-        </p>
+return (
+
+<div className="app">
 
 
-        <BotGrid />
+<Header />
 
 
-      </main>
+<Navigation />
 
 
-    </div>
+<main className="dashboard">
 
-  );
+
+
+{page==="📊 Dashboard" && (
+
+<>
+
+<h1>
+DASHBOARD
+</h1>
+
+
+<BotGrid />
+
+</>
+
+)}
+
+
+
+{page==="📈 Chart" && (
+
+<ChartView />
+
+)}
+
+
+
+</main>
+
+
+</div>
+
+);
+
 
 }
 
